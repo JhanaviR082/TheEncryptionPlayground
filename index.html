@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography Algorithms</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div id="app" class="min-h-screen bg-gradient text-white p-8">
+        <!-- Algorithm Selection View -->
+        <div id="selection-view" class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-bold mb-4 gradient-text">
+                    The Encryption Playground
+                </h1>
+                <p class="text-gray-400 text-lg">
+                  This project highlights five of the most important algorithms in modern cryptography: DES, AES, RSA, SHA-256, and Diffie-Hellman. Together, they form the foundation of secure communication, data protection, and digital trust across the internet. From encryption to authentication to safe key exchange, these algorithms power the security of our digital world — and here’s an interactive, fun way to learn more about them!
+                </p>
+            </div>
+
+            <!-- Algorithm Grid -->
+            <div id="algorithm-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Algorithm cards will be inserted here by JavaScript -->
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-12 text-center text-gray-500 text-sm">
+                <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                 5 cryptography algorithms. Team MahiKhushiJhanavi
+            </div>
+        </div>
+
+        <!-- Algorithm Detail View -->
+        <div id="detail-view" class="max-w-7xl mx-auto" style="display: none;">
+            <!-- Back Button -->
+            <button id="back-button" class="mb-6 flex items-center text-gray-400 hover:text-white transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Algorithms
+            </button>
+
+            <!-- Header -->
+            <div class="mb-8">
+                <div class="flex items-center mb-4">
+                    <div id="detail-icon" class="w-16 h-16 rounded-lg flex items-center justify-center mr-4">
+                        <!-- Icon will be inserted here -->
+                    </div>
+                    <div>
+                        <h1 id="detail-title" class="text-4xl font-bold"></h1>
+                        <p id="detail-description" class="text-gray-400"></p>
+                    </div>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+                        <h3 class="text-sm font-semibold text-gray-400 mb-2">DESCRIPTION</h3>
+                        <p id="info-description" class="text-sm text-gray-300"></p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+                        <h3 class="text-sm font-semibold text-gray-400 mb-2">UNIQUE FEATURE</h3>
+                        <p id="info-unique" class="text-sm text-gray-300"></p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+                        <h3 class="text-sm font-semibold text-gray-400 mb-2">COMMON USES</h3>
+                        <p id="info-usage" class="text-sm text-gray-300"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Left Panel - Input/Output -->
+                <div class="space-y-6">
+                    <!-- Input Section -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h2 class="text-xl font-semibold mb-4">Input</h2>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Message</label>
+                                <textarea
+                                    id="input-text"
+                                    placeholder="Enter your message here..."
+                                    class="w-full bg-gray-900 rounded-lg p-3 text-white border border-gray-700 focus:border-blue-500 focus:outline-none h-24 resize-none"
+                                ></textarea>
+                            </div>
+                            
+                            <div id="key-input-container" style="display: none;">
+                                <label class="block text-sm text-gray-400 mb-2">Encryption Key (optional)</label>
+                                <input
+                                    type="text"
+                                    id="key-input"
+                                    placeholder="Leave empty for default key"
+                                    class="w-full bg-gray-900 rounded-lg p-3 text-white border border-gray-700 focus:border-blue-500 focus:outline-none"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 mt-4">
+                            <button
+                                id="encrypt-button"
+                                class="flex-1 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                            >
+                                Encrypt
+                            </button>
+                            
+                            <button
+                                id="decrypt-button"
+                                class="flex-1 bg-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors"
+                                style="display: none;"
+                            >
+                                Decrypt
+                            </button>
+                            
+                            <button
+                                id="reset-button"
+                                class="px-6 bg-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors"
+                            >
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h2 id="output-title" class="text-xl font-semibold mb-4">Encrypted Output</h2>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 border border-gray-700 min-h-[100px]">
+                            <p id="output-text" class="text-gray-500 text-sm">Output will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel - Step Visualization -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h2 class="text-xl font-semibold mb-4">Step-by-Step Process</h2>
+                    
+                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-700 h-[500px] overflow-y-auto">
+                        <div id="steps-container">
+                            <div class="flex items-center justify-center h-full">
+                                <p class="text-gray-500 text-sm">
+                                    Process steps will appear here when you encrypt or decrypt
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
