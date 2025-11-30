@@ -3,19 +3,22 @@
 The Encryption Playground is an interactive, beginner-friendly platform designed to explore five of the most widely used cryptographic algorithms — DES, AES, RSA, SHA-256, and Diffie–Hellman. It presents each algorithm through cleanly designed cards, simple explanations, and a functional DES encryption demo to help learners understand how data security works in the real world.
 
 ## 🚀 Features
->Interactive cards showcasing major encryption algorithms
->Clear and concise explanations suitable for CNS beginners
->Live DES encryption demonstration using JavaScript
->Lightweight, responsive, and visually appealing interface
->Ideal for academic learning, CNS labs, and project presentations
+Interactive cards showcasing major encryption algorithms
+Clear and concise explanations suitable for CNS beginners
+Live DES encryption demonstration using JavaScript
+Lightweight, responsive, and visually appealing interface
+Ideal for academic learning, CNS labs, and project presentations
 
 ## 🔐 Algorithms Included
->DES – Early symmetric-key encryption standard
->AES – Modern and secure symmetric encryption widely used today
->RSA – Popular public-key cryptosystem for secure communication
->SHA-256 – Strong hashing algorithm for integrity and blockchain
->Diffie–Hellman – Secure method for exchanging cryptographic keys
+DES – An early symmetric-key encryption standard known for its simplicity and historical importance.
 
+AES – A modern, highly secure symmetric encryption algorithm used widely in today’s systems.
+
+RSA – A popular public-key cryptosystem used for secure data exchange and digital signatures.
+
+SHA-256 – A strong hashing algorithm ensuring data integrity; widely used in security and blockchain.
+
+Diffie–Hellman – A cryptographic method that enables secure key exchange over an insecure channel.
 ## 🛠️ Tech Stack
 HTML
 CSS
